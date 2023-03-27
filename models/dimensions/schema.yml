@@ -1,0 +1,55 @@
+
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Dim customer to join customer with city,address and country"
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  - name: dim_film
+    description: "Dim films to join language,film_category and category tables"
+    columns:
+      - name: film_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  - name: dim_staffs
+    description: "Dim staffs"
+    columns:
+      - name: staff_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_store
+    description: "Dim store"
+    columns:
+      - name: store_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+
+sources:
+  - name: stg
+    database: dev
+    schema: stg
+    tables:
+      - name: customer
+      - name: address
+      - name: city
+      - name: country
+      - name: staff
+      - name: store
+      - name: film
+      - name: language
+      - name: film_category
+      - name: category
+      
